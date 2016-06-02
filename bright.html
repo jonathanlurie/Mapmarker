@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- saved from url=(0192)https://api.mapbox.com/styles/v1/mapbox/bright-v9.html?title=false&access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w#13.84/45.4782/-73.5582 -->
+<html class="gr__api_mapbox_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>navigator.geolocation.getCurrentPosition=function(a,b){a({coords:{latitude:40.664065,longitude:-74.325528},timestamp:Date.now()})};var position={coords:{latitude:40.664065,longitude:-74.325528}};</script>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>Bright | Mapbox</title>
+
+    <link href="./mapbox-files/base.css" rel="stylesheet">
+
+    <script src="./mapbox-files/raven.min.js"></script>
+
+    <link href="./mapbox-files/mapbox-gl.css" rel="stylesheet">
+    <script src="./mapbox-files/mapbox-gl.js"></script>
+    <link href="./mapbox-files/mapbox.css" rel="stylesheet">
+    <script src="./mapbox-files/mapbox.js"></script>
+    <script src="./mapbox-files/leaflet-hash.js"></script>
+
+    <meta name="twitter:site" content="@mapbox">
+    <meta property="og:site_name" content="Mapbox">
+    <meta name="twitter:url" content="https://api.mapbox.com/styles/v1/mapbox/bright-v9.html?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w">
+    <meta property="og:url" content="https://api.mapbox.com/styles/v1/mapbox/bright-v9.html?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w">
+    <meta name="twitter:title" content="Bright">
+    <meta property="og:title" content="Bright">
+    <meta name="twitter:description" content="A map made by mapbox">
+    <meta property="og:description" content="A map made by mapbox">
+    <meta name="twitter:image" content="https://api.mapbox.com/styles/v1/mapbox/bright-v9/static/0,0,2/435x375?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w">
+    <meta property="og:image" content="https://api.mapbox.com/styles/v1/mapbox/bright-v9/static/0,0,2/435x375?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w">
+    <meta name="twitter:image:width" content="435">
+    <meta name="twitter:image:height" content="375">
+    <meta property="og:image:width" content="435">
+    <meta property="og:image:height" content="375">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+
+    <style>
+    html, body, #map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    .shadow {
+        box-shadow: 0 0 25px 0 rgba(0,0,0,0.15);
+    }
+    .round-bottomleft {
+        border-bottom-left-radius: 3px;
+    }
+    .mapboxgl-ctrl-nav > a {
+        border-color: rgba(0,0,0,.1);
+    }
+    @media only screen and (max-width:640px) {
+        .leaflet-left .leaflet-control,
+        .mapboxgl-ctrl-top-left .mapboxgl-ctrl {
+            margin-top: 70px;
+        }
+        .round-bottomleft {
+            border-bottom-left-radius: 0;
+        }
+        .mobile-fullwidth {
+            width: 100%;
+            height: 60px;
+            overflow: auto;
+        }
+    }
+    </style>
+</head>
+
+<body data-gr-c-s-loaded="true" data-pinterest-extension-installed="cr1.39.1">
+    <div id="map" class="mapboxgl-map"></div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        Raven.config('https://054855fa864f4c80ae2edd13d26b3e08@app.getsentry.com/58695').install();
+
+        if ( mapboxgl.supported() ) {
+            renderMapboxGL();
+        } else {
+            renderMapboxJS();
+        }
+
+        function renderMapboxGL(options) {
+            mapboxgl.accessToken = 'pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w';
+            mapboxgl.config.API_URL = 'https://api.mapbox.com';
+            window.map = new mapboxgl.Map({
+                container: 'map',
+                style: "mapbox://styles/mapbox/bright-v9",
+                hash: true,
+                scrollZoom: true
+            }).addControl(new mapboxgl.Navigation({position: 'top-left'}));
+
+            var center = window.map.getCenter();
+
+
+
+            map.on('load', function () {
+
+                map.addSource("markers", {
+                    "type": "geojson",
+                    "data": {
+                        "type": "FeatureCollection",
+                        "features": [{
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [center.lng, center.lat]
+                            },
+                            "properties": {
+                                "title": "Here",
+                                "marker-symbol": "marker"
+                            }
+                        }]
+                    }
+                });
+
+
+                map.addLayer({
+                    "id": "markers-circles-out",
+                    "type": "circle",
+                    "source": "markers",
+                    "paint": {
+                        "circle-color": "#ffffff",
+                        "circle-radius": 15,
+                        "circle-opacity": 1
+                    }
+
+                });
+
+                map.addLayer({
+                    "id": "markers-circles",
+                    "type": "circle",
+                    "source": "markers",
+                    "paint": {
+                        "circle-color": "#C274E8",
+                        "circle-radius": 12,
+                        "circle-opacity": 1
+                    }
+
+                });
+
+
+            });
+
+        }
+
+
+
+
+        function renderMapboxJS() {
+            L.mapbox.accessToken = 'pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w';
+            L.mapbox.config.HTTPS_URL = 'https://api.mapbox.com';
+            L.mapbox.config.FORCE_HTTPS = true;
+
+            window.map = L.mapbox.map('map', '', {
+                scrollWheelZoom: true,
+                minZoom: 1
+            });
+
+            L.mapbox.styleLayer('mapbox://styles/mapbox/bright-v9').addTo(map);
+
+            if (window.location.hash) {
+                window.location.hash = window.location.hash
+                .substring(1).split('/').slice(0, 3).join('/');
+            } else {
+                map.setView([0, 0], 1);
+            }
+
+            var hash = new L.hash(map);
+
+            hash.parseHash = function(hash) {
+                if (hash.indexOf('#') === 0) {
+                    hash = hash.substr(1);
+                }
+                var args = hash.split('/');
+                if (args.length == 3) {
+                    var zoom = parseInt(args[0], 10) + 1, // Account for zoomOffset
+                    lat = parseFloat(args[1]),
+                    lon = parseFloat(args[2]);
+                    if (isNaN(zoom) || isNaN(lat) || isNaN(lon)) {
+                        return false;
+                    } else {
+                        return {
+                            center: new L.LatLng(lat, lon),
+                            zoom: zoom
+                        };
+                    }
+                } else {
+                    return false;
+                }
+            }
+
+            hash.formatHash = function(map) {
+                var center = map.getCenter(),
+                zoom = map.getZoom() - 1,  // Account for zoomOffset
+                precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
+
+                return '#' + [zoom,
+                    center.lat.toFixed(precision),
+                    center.lng.toFixed(precision)
+                ].join('/');
+            }
+        }
+    })();
+    </script>
+
+
+
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
