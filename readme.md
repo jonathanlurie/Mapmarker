@@ -24,5 +24,8 @@ The Hash is composed of 3 elements:
 
 The hash updates itself when the map is panned and zoomed. Then, if you reload, the marker will be again at the center.
 
+# TODO
+Add the right click feature to change the hash using the clicked position. It would be easier to actually create the marker.
+
 ## License
 MIT
