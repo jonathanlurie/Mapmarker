@@ -90,7 +90,7 @@
             mapboxgl.config.API_URL = 'https://api.mapbox.com';
             window.map = new mapboxgl.Map({
                 container: 'map',
-                style: "mapbox://styles/mapbox/outdoors-v9",
+                style: "mapbox://styles/mapbox/light-v9",
                 hash: true,
                 scrollZoom: true
             }).addControl(new mapboxgl.Navigation({position: 'top-left'}));
@@ -137,7 +137,7 @@
                     "type": "circle",
                     "source": "markers",
                     "paint": {
-                        "circle-color": "#CF88F2",
+                        "circle-color": "#74D4E8",
                         "circle-radius": 12,
                         "circle-opacity": 1
                     }
